@@ -31,7 +31,7 @@ sh 'npm run build'
 stage('Package Artifact') {
 steps {
 sh 'tar -czf artifact.tar.gz *'
-archiveArtifacts artifacts: 'artifact.tar.gz',
+archiveArtifacts artifacts: 'artifact.tar.gz'
 }
 }
 }
