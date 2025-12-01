@@ -18,7 +18,8 @@ sh 'npm install'
 
 stage('Run Tests') {
 steps {
-sh 'npx jest'
+sh 'chmod +x ./node_modules/.bin/jest'
+sh './node_modules/.bin/jest'
 }
 }
 
