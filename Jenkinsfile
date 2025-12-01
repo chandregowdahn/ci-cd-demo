@@ -25,7 +25,7 @@ echo "Running unit and integration testing .."
 }
 }
 
-stage('packing')
+stage('packing') {
 steps {
 echo "packing artifact like Docker Image .."
 }
