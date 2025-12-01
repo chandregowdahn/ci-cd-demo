@@ -6,27 +6,33 @@ stages {
 
 stage('Checkout') {
 steps {
-echo "Pulling source code...."
 checkout scm
 }
 }
 
 
+stage('Install Dependencies') {
+steps {
+sh 'npm install'
+}
+}
+
+stage(' Run Tests') {
+steps {
+sh 'npm test'
+}
+}
+
 stage('Build') {
 steps {
-echo "Building the application.."
+sh 'npm run build'
 }
 }
 
-stage('Test') {
+stage('Package Artifact') {
 steps {
-echo "Running unit and integration testing .."
-}
-}
-
-stage('packing') {
-steps {
-echo "packing artifact like Docker Image .."
+sh 'tar -czf artifact.tar.gz *'
+archiveArtifacts artifacts: 'artifact.tar.gz',
 }
 }
 }
