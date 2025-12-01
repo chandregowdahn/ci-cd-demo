@@ -2,10 +2,9 @@ pipeline {
 
 agent any
 
-satges {
+stages {
 
 stage('Checkout') {
-
 steps {
 echo "Pulling source code...."
 checkout scm
@@ -30,7 +29,6 @@ steps {
 echo "packing artifact like Docker Image .."
 }
 }
-
 }
 }
 
